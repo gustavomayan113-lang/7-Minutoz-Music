@@ -1,0 +1,1613 @@
+/* ==========================
+   LISTA DE MÚSICAS
+========================== */
+
+.listaMusicas{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+/* ==========================
+   CARD DA MÚSICA
+========================== */
+
+.cardMusica{
+
+    background:rgba(17,17,17,.95);
+
+    border:1px solid var(--borda);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+    position:relative;
+
+}
+
+.cardMusica:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--vermelho);
+
+    box-shadow:0 20px 45px rgba(211,18,43,.25);
+
+}
+
+.cardMusica img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* ==========================
+   INFORMAÇÕES
+========================== */
+
+.infoMusica{
+
+    padding:18px;
+
+}
+
+.infoMusica h3{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.infoMusica p{
+
+    color:var(--cinza);
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+}
+
+.infoMusica span{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:50px;
+
+    background:rgba(211,18,43,.15);
+
+    color:var(--vermelho-hover);
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ==========================
+   BOTÃO PLAY
+========================== */
+
+.playCard{
+
+    position:absolute;
+
+    right:20px;
+
+    bottom:92px;
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:var(--vermelho);
+
+    color:#fff;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(211,18,43,.45);
+
+}
+
+.cardMusica:hover .playCard{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.playCard:hover{
+
+    background:var(--vermelho-hover);
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================
+   CARD TOCANDO
+========================== */
+
+.cardMusica.tocando{
+
+    border:2px solid var(--vermelho);
+
+    box-shadow:0 0 35px rgba(211,18,43,.45);
+
+}
+
+.cardMusica.tocando::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(211,18,43,.18),
+        transparent
+    );
+
+    pointer-events:none;
+
+}
+
+/* ==========================
+   ANIMAÇÕES
+========================== */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.cardMusica{
+
+    animation:aparecer .5s ease;
+
+}
+
+/* ==========================
+   SCROLL PERSONALIZADO
+========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0d0d0d;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--vermelho);
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--vermelho-hover);
+
+}
+
+/* ==========================
+   SELEÇÃO DE TEXTO
+========================== */
+
+::selection{
+
+    background:var(--vermelho);
+
+    color:#fff;
+
+}
+
+/* ==========================
+   TRANSIÇÕES GERAIS
+========================== */
+
+button,
+input,
+li,
+.cardMusica{
+
+    transition:.3s;
+
+}
+
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    background:#090909;
+
+    color:#fff;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================
+   VARIÁVEIS
+========================== */
+
+:root{
+
+    --vermelho:#d3122b;
+
+    --vermelho-hover:#ff2848;
+
+    --cinza:#bfbfbf;
+
+    --cinzaEscuro:#181818;
+
+    --preto:#090909;
+
+    --card:#111111;
+
+    --borda:#2a2a2a;
+
+    --shadow:0 15px 40px rgba(0,0,0,.45);
+
+}
+
+/* ==========================
+   FUNDO
+========================== */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background: linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.95));
+
+    z-index:-2;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header{
+
+    width:100%;
+
+    padding:70px 8%;
+
+    position:relative;
+
+}
+
+.logoArea{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+.logoArea img{
+
+    width:170px;
+
+    height:170px;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.logoArea h1{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:80px;
+
+    letter-spacing:4px;
+
+    color:#fff;
+
+}
+
+.logoArea p{
+
+    margin-top:15px;
+
+    color:var(--cinza);
+
+    max-width:650px;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+}
+
+/* ==========================
+   PESQUISA
+========================== */
+
+.pesquisa{
+
+    width:84%;
+
+    margin:auto;
+
+    position:relative;
+
+    margin-bottom:50px;
+
+}
+
+.pesquisa input{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    background:#161616;
+
+    color:#fff;
+
+    font-size:17px;
+
+    padding-left:65px;
+
+    padding-right:25px;
+
+    border:2px solid transparent;
+
+    transition:.35s;
+
+}
+
+.pesquisa input:focus{
+
+    border-color:var(--vermelho);
+
+    box-shadow:0 0 25px rgba(211,18,43,.35);
+
+}
+
+.pesquisa i{
+
+    position:absolute;
+
+    left:25px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:20px;
+
+    color:var(--cinza);
+
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+
+main{
+
+    width:84%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:260px 1fr;
+
+    gap:35px;
+
+    padding-bottom:170px;
+
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+
+    background:rgba(17,17,17,.90);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid var(--borda);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    height:fit-content;
+
+    position:sticky;
+
+    top:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.sidebar h2{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    letter-spacing:2px;
+
+    font-size:34px;
+
+    margin-bottom:25px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:15px 18px;
+
+    border-radius:12px;
+
+    margin-bottom:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    color:var(--cinza);
+
+    font-weight:600;
+
+}
+
+.sidebar li:hover{
+
+    background:var(--vermelho);
+
+    color:#fff;
+
+    transform:translateX(6px);
+
+}
+
+.sidebar li.ativo{
+
+    background:var(--vermelho);
+
+    color:#fff;
+
+}
+
+/* ==========================
+   ÁREA DAS MÚSICAS
+========================== */
+
+.musicas{
+
+    width:100%;
+
+}
+
+.topoLista{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.topoLista h2{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:42px;
+
+    letter-spacing:2px;
+
+}
+
+#totalMusicas{
+
+    color:var(--cinza);
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   PLAYER
+========================== */
+
+.player{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    background:rgba(10,10,10,.96);
+
+    backdrop-filter:blur(18px);
+
+    border-top:1px solid var(--borda);
+
+    display:grid;
+
+    grid-template-columns:320px 1fr 250px;
+
+    align-items:center;
+
+    padding:18px 30px;
+
+    z-index:999;
+
+}
+
+/* ==========================
+   INFO PLAYER
+========================== */
+
+.infoPlayer{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.infoPlayer img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+}
+
+.infoPlayer h3{
+
+    font-size:18px;
+
+    margin-bottom:5px;
+
+}
+
+.infoPlayer p{
+
+    color:var(--cinza);
+
+    font-size:14px;
+
+}
+
+/* ==========================
+   CONTROLES
+========================== */
+
+.controles{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.botoes{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:15px;
+
+}
+
+.botoes button{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#222;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.botoes button:hover{
+
+    background:var(--vermelho);
+
+}
+
+#play{
+
+    width:62px;
+
+    height:62px;
+
+    font-size:22px;
+
+    background:var(--vermelho);
+
+}
+
+.botoes button.ativo{
+
+    background:var(--vermelho);
+
+    color:#fff;
+
+    box-shadow:0 0 15px rgba(211,18,43,.5);
+
+}
+
+#play:hover{
+
+    transform:scale(1.08);
+
+    background:var(--vermelho-hover);
+
+}
+
+/* ==========================
+   PROGRESSO
+========================== */
+
+.progresso{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.progresso span{
+
+    font-size:13px;
+
+    color:var(--cinza);
+
+    min-width:40px;
+
+}
+
+#barraProgresso{
+
+    flex:1;
+
+    cursor:pointer;
+
+}
+
+/* ==========================
+   VOLUME
+========================== */
+
+.volume{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+}
+
+.volume i{
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+#volume{
+
+    width:140px;
+
+}
+
+/* ==========================
+   INPUT RANGE
+========================== */
+
+input[type=range]{
+
+    appearance:none;
+
+    height:6px;
+
+    border-radius:50px;
+
+    background:#333;
+
+}
+
+input[type=range]::-webkit-slider-thumb{
+
+    appearance:none;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:var(--vermelho);
+
+    cursor:pointer;
+
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width:1100px){
+
+main{
+
+grid-template-columns:1fr;
+
+}
+
+.sidebar{
+
+position:relative;
+
+top:0;
+
+}
+
+.player{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+text-align:center;
+
+}
+
+.infoPlayer{
+
+justify-content:center;
+
+}
+
+.volume{
+
+justify-content:center;
+
+}
+
+}
+
+@media(max-width:700px){
+
+header{
+
+padding:40px 20px;
+
+}
+
+.logoArea{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.logoArea img{
+
+width:130px;
+
+height:130px;
+
+}
+
+.logoArea h1{
+
+font-size:54px;
+
+}
+
+.logoArea p{
+
+font-size:15px;
+
+}
+
+main{
+
+width:94%;
+
+}
+
+.pesquisa{
+
+width:94%;
+
+}
+
+.listaMusicas{
+
+grid-template-columns:1fr;
+
+}
+
+.player{
+
+padding:15px;
+
+}
+
+#volume{
+
+width:100px;
+
+}
+
+}
+
+/* ==========================
+   EFEITOS
+========================== */
+
+.cardMusica,
+.sidebar,
+.player,
+.pesquisa input{
+
+transition:.35s ease;
+
+}
+
+.cardMusica:hover{
+
+transform:translateY(-8px) scale(1.02);
+
+}
+
+.botoes button:active{
+
+transform:scale(.95);
+
+}
+
+.playCard:active{
+
+transform:scale(.90);
+
+}
+
+.logoArea img:hover{
+
+transform:rotate(-2deg) scale(1.05);
+
+transition:.4s;
+
+}
+
+
+/* ==========================
+   BOTÃO PARA LUCAS
+========================== */
+
+.btnParaLucas{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:transparent;
+
+    border:2px solid var(--vermelho);
+
+    color:var(--vermelho-hover);
+
+    font-weight:700;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btnParaLucas:hover{
+
+    background:var(--vermelho);
+
+    color:#fff;
+
+}
+
+/* ==========================
+   MODAL / CARTA
+========================== */
+
+.modalOverlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.85);
+
+    z-index:1000;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+.modalOverlay.aberto{
+
+    display:flex;
+
+}
+
+.modalCarta{
+
+    background:#111;
+
+    border:1px solid var(--borda);
+
+    border-radius:20px;
+
+    max-width:600px;
+
+    width:100%;
+
+    max-height:80vh;
+
+    overflow-y:auto;
+
+    padding:40px;
+
+    position:relative;
+
+    box-shadow:var(--shadow);
+
+}
+
+.modalCarta h2{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:36px;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+    color:var(--vermelho-hover);
+
+}
+
+.textoCarta p{
+
+    color:var(--cinza);
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+
+    font-size:16px;
+
+}
+
+.brincadeiraFinal{
+
+    color:#fff !important;
+
+    font-weight:700;
+
+}
+
+.fecharModal{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    background:#222;
+
+    border:none;
+
+    color:#fff;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.fecharModal:hover{
+
+    background:var(--vermelho);
+
+}
+
+
+/* ==========================
+   RODAPÉ DE CRÉDITO
+========================== */
+
+.creditos{
+
+    width:100%;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-bottom:170px;
+
+    color:var(--cinza);
+
+    font-size:13px;
+
+    opacity:.7;
+
+}
+
+
+.creditos .contato{
+
+    margin-top:8px;
+
+    color:var(--cinza);
+
+    opacity:.9;
+
+}
+
+/* ==========================
+   EQUALIZADOR ANIMADO
+========================== */
+
+.equalizador{
+
+    display:none;
+
+    align-items:flex-end;
+
+    gap:3px;
+
+    height:14px;
+
+    margin-left:8px;
+
+}
+
+.cardMusica.tocando .equalizador{
+
+    display:inline-flex;
+
+}
+
+.equalizador span{
+
+    display:block;
+
+    width:3px;
+
+    background:var(--vermelho);
+
+    border-radius:2px;
+
+    animation:pulsar 1s ease-in-out infinite;
+
+}
+
+.equalizador span:nth-child(1){
+
+    height:6px;
+
+    animation-delay:0s;
+
+}
+
+.equalizador span:nth-child(2){
+
+    height:14px;
+
+    animation-delay:.2s;
+
+}
+
+.equalizador span:nth-child(3){
+
+    height:9px;
+
+    animation-delay:.4s;
+
+}
+
+@keyframes pulsar{
+
+    0%, 100%{
+
+        transform:scaleY(.4);
+
+    }
+
+    50%{
+
+        transform:scaleY(1);
+
+    }
+
+}
+
+.linhaTitulo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    overflow:hidden;
+
+}
+
+.linhaTitulo h3{
+
+    flex:1;
+
+    min-width:0;
+
+}
+
+
+/* ==========================
+   BADGE 7MZ ANIMADA (NEON)
+========================== */
+
+.badge7mz{
+
+    position:absolute;
+
+    top:40px;
+
+    right:8%;
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:42px;
+
+    letter-spacing:4px;
+
+    color:var(--vermelho-hover);
+
+    text-shadow:
+
+        0 0 5px var(--vermelho),
+
+        0 0 15px var(--vermelho),
+
+        0 0 30px var(--vermelho);
+
+    animation:piscarNeon 3s ease-in-out infinite;
+
+    pointer-events:none;
+
+    user-select:none;
+
+}
+
+@keyframes piscarNeon{
+
+    0%, 18%, 22%, 25%, 53%, 57%, 100%{
+
+        opacity:1;
+
+    }
+
+    20%, 24%, 55%{
+
+        opacity:.4;
+
+    }
+
+}
+
+
+/* ==========================
+   TÍTULO PISCANDO (LENTO)
+========================== */
+
+.piscar7mz{
+
+    animation:piscarTitulo 2.5s ease-in-out infinite;
+
+}
+
+@keyframes piscarTitulo{
+
+    0%, 100%{
+
+        opacity:1;
+
+        text-shadow:none;
+
+    }
+
+    50%{
+
+        opacity: .75;
+
+        text-shadow:0 0 20px var(--vermelho);
+
+    }
+
+}
+
+
+/* ==========================
+   CONFETE VERMELHO
+========================== */
+
+.particulaConfete{
+
+    position:fixed;
+
+    top:-20px;
+
+    width:10px;
+
+    height:10px;
+
+    background:var(--vermelho);
+
+    border-radius:2px;
+
+    z-index:2000;
+
+    pointer-events:none;
+
+    animation:cairConfete linear forwards;
+
+}
+
+@keyframes cairConfete{
+
+    0%{
+
+        top:-20px;
+
+        transform:rotate(0deg);
+
+    }
+
+    100%{
+
+        top:100vh;
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/* ==========================
+   PARTÍCULAS FLUTUANDO
+========================== */
+
+.particulas{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+.particulas span{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    width:6px;
+
+    height:6px;
+
+    background:var(--vermelho);
+
+    border-radius:50%;
+
+    opacity:.5;
+
+    animation:flutuar linear infinite;
+
+}
+
+
+.particulas span:nth-child(1){ left:62.1%; animation-duration:10.3s; animation-delay:1.7s; }
+.particulas span:nth-child(2){ left:23.0%; animation-duration:18.8s; animation-delay:4.1s; }
+.particulas span:nth-child(3){ left:85.9%; animation-duration:11.0s; animation-delay:2.5s; }
+.particulas span:nth-child(4){ left:4.8%; animation-duration:12.6s; animation-delay:3.0s; }
+.particulas span:nth-child(5){ left:4.5%; animation-duration:12.4s; animation-delay:3.9s; }
+.particulas span:nth-child(6){ left:53.2%; animation-duration:12.6s; animation-delay:3.5s; }
+.particulas span:nth-child(7){ left:78.1%; animation-duration:10.1s; animation-delay:4.8s; }
+.particulas span:nth-child(8){ left:67.6%; animation-duration:14.1s; animation-delay:0.9s; }
+.particulas span:nth-child(9){ left:92.0%; animation-duration:14.0s; animation-delay:0.6s; }
+.particulas span:nth-child(10){ left:11.1%; animation-duration:20.2s; animation-delay:3.6s; }
+.particulas span:nth-child(11){ left:77.9%; animation-duration:18.8s; animation-delay:3.2s; }
+.particulas span:nth-child(12){ left:93.5%; animation-duration:14.5s; animation-delay:3.3s; }
+.particulas span:nth-child(13){ left:80.0%; animation-duration:17.4s; animation-delay:5.2s; }
+.particulas span:nth-child(14){ left:56.3%; animation-duration:18.5s; animation-delay:0.3s; }
+.particulas span:nth-child(15){ left:23.4%; animation-duration:13.5s; animation-delay:0.5s; }
+.particulas span:nth-child(16){ left:23.9%; animation-duration:11.2s; animation-delay:1.7s; }
+.particulas span:nth-child(17){ left:61.8%; animation-duration:14.4s; animation-delay:2.2s; }
+.particulas span:nth-child(18){ left:21.7%; animation-duration:13.2s; animation-delay:5.6s; }
+.particulas span:nth-child(19){ left:62.9%; animation-duration:17.3s; animation-delay:1.0s; }
+.particulas span:nth-child(20){ left:70.5%; animation-duration:12.0s; animation-delay:2.3s; }
+.particulas span:nth-child(21){ left:95.0%; animation-duration:17.7s; animation-delay:3.3s; }
+.particulas span:nth-child(22){ left:66.4%; animation-duration:20.1s; animation-delay:4.7s; }
+.particulas span:nth-child(23){ left:23.5%; animation-duration:10.4s; animation-delay:1.9s; }
+.particulas span:nth-child(24){ left:27.2%; animation-duration:12.5s; animation-delay:5.7s; }
+.particulas span:nth-child(25){ left:84.4%; animation-duration:13.8s; animation-delay:3.9s; }
+.particulas span:nth-child(26){ left:39.2%; animation-duration:21.0s; animation-delay:2.8s; }
+.particulas span:nth-child(27){ left:26.9%; animation-duration:13.0s; animation-delay:3.4s; }
+.particulas span:nth-child(28){ left:26.7%; animation-duration:17.0s; animation-delay:5.4s; }
+.particulas span:nth-child(29){ left:39.5%; animation-duration:12.6s; animation-delay:6.0s; }
+.particulas span:nth-child(30){ left:49.9%; animation-duration:11.1s; animation-delay:0.3s; }
+.particulas span:nth-child(31){ left:12.3%; animation-duration:17.5s; animation-delay:4.8s; }
+.particulas span:nth-child(32){ left:41.7%; animation-duration:10.8s; animation-delay:2.3s; }
+
+@keyframes flutuar{
+
+    0%{
+
+        transform:translateY(0) translateX(0);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:.6;
+
+    }
+
+    90%{
+
+        opacity:.4;
+
+    }
+
+    100%{
+
+        transform:translateY(-110vh) translateX(20px);
+
+        opacity:0;
+
+    }
+
+}
+
+
+.linkInsta{
+
+    color:var(--vermelho-hover);
+
+    text-decoration:none;
+
+}
+
+.linkInsta:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* ==========================
+   BARRA DE PROGRESSO COM GRADIENTE
+========================== */
+
+#barraProgresso{
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--preto),
+
+        var(--vermelho-hover),
+
+        var(--vermelho)
+
+    );
+
+    background-size:200% 100%;
+
+    animation:moverGradiente 3s linear infinite;
+
+}
+
+@keyframes moverGradiente{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    100%{
+
+        background-position:200% 50%;
+
+    }
+
+}
+
+/* ==========================
+   FIM DO CSS
+========================== */

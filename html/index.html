@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>7 Minutoz Music</title>
+    <link rel="icon" type="image/png" href="../img/7mz-logo.png">
+
+    <!-- Meta tags básicas -->
+    <meta name="description" content="Todos os raps do 7 Minutoz organizados em um só lugar. Pesquise, escolha sua música favorita e aproveite.">
+
+    <!-- Open Graph (WhatsApp, Facebook, Telegram) -->
+    <meta property="og:title" content="7 Minutoz Music">
+    <meta property="og:description" content="Todos os raps do 7 Minutoz organizados em um só lugar.">
+    <meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/imagens/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://SEU-DOMINIO-AQUI.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="7 Minutoz Music">
+    <meta name="twitter:description" content="Todos os raps do 7 Minutoz organizados em um só lugar.">
+    <meta name="twitter:image" content="https://SEU-DOMINIO-AQUI.com/imagens/logo.png">
+
+
+
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Fundo -->
+    <div class="background"></div>
+
+    <div class="particulas">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+
+    <div class="logoArea">
+
+        <img src="../img/7mz-logo.png" alt="7 Minutoz">
+
+        <div>
+
+            <h1 class="piscar7mz">7 Minutoz Music</h1>
+
+            <p>
+                Todos os raps do 7 Minutoz organizados em um só lugar.
+                Pesquise, escolha sua música favorita e aproveite.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="badge7mz">
+        7MZ
+    </div>
+
+</header>
+
+    <!-- Pesquisa -->
+
+    <section class="pesquisa">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Pesquisar música..."
+        >
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+    </section>
+
+    <!-- Conteúdo -->
+
+    <main>
+
+        <!-- Barra lateral -->
+
+        <aside class="sidebar">
+
+            <h2>Categorias</h2>
+
+            <ul>
+
+                <li class="ativo">Todos</li>
+                <li>Naruto</li>
+                <li>Dragon Ball</li>
+                <li>One Piece</li>
+                <li>Attack on Titan</li>
+                <li>Chainsaw Man</li>
+                <li>Marvel</li>
+                <li>DC</li>
+                <li>FNAF</li>
+                <li>Death Note</li>
+                <li>Breaking Bad</li>
+                <li>Nanatsu no Taizai</li>
+                <li>The Boys</li>
+                <li>Nostalgia</li>
+                <li>Ira</li>
+                <li>Especiais</li>
+                <li>Tokyo Revengers</li>
+
+            </ul>
+
+            <button id="btnParaLucas" class="btnParaLucas">
+                Para Lucas
+            </button>
+
+        </aside>
+
+        <!-- Lista -->
+
+        <section class="musicas">
+
+            <div class="topoLista">
+
+                <h2>Todas as músicas</h2>
+
+                <span id="totalMusicas">
+                    0 músicas
+                </span>
+
+            </div>
+
+            <div
+                id="listaMusicas"
+                class="listaMusicas">
+
+                <!-- JavaScript adicionará as músicas aqui -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PLAYER -->
+
+    <footer class="player">
+
+        <!-- Informações -->
+
+        <div class="infoPlayer">
+
+            <img
+                id="capaAtual"
+                src=""
+                alt="Capa">
+
+            <div>
+
+                <h3 id="tituloAtual">
+                    Nenhuma música
+                </h3>
+
+                <p id="artistaAtual">
+                    7 Minutoz
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Controles -->
+
+        <div class="controles">
+
+            <div class="botoes">
+
+                <button id="shuffle">
+
+                    <i class="fa-solid fa-shuffle"></i>
+
+                </button>
+
+                <button id="anterior">
+
+                    <i class="fa-solid fa-backward"></i>
+
+                </button>
+
+                <button id="play">
+
+                    <i class="fa-solid fa-play"></i>
+
+                </button>
+
+                <button id="proxima">
+
+                    <i class="fa-solid fa-forward"></i>
+
+                </button>
+
+                <button id="repetir">
+
+                    <i class="fa-solid fa-repeat"></i>
+
+                </button>
+
+            </div>
+
+            <div class="progresso">
+
+                <span id="tempoAtual">
+                    0:00
+                </span>
+
+                <input
+                    type="range"
+                    id="barraProgresso"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+                <span id="duracao">
+                    0:00
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Volume -->
+
+        <div class="volume">
+
+            <i class="fa-solid fa-volume-high"></i>
+
+            <input
+                type="range"
+                id="volume"
+                min="0"
+                max="100"
+                value="100"
+            >
+
+        </div>
+
+    </footer>
+
+
+    <footer class="creditos">
+
+        <p>
+            Site feito por um fã, não oficial. Todos os direitos das
+            músicas pertencem ao <strong>7 Minutoz</strong>.
+        </p>
+
+        <p class="contato">
+            Contato: rabbit.code.ofic@gmail.com
+        </p>
+
+        <p class="contato">
+            Instagram: <a href="https://instagram.com/rabbit_code_" target="_blank" class="linkInsta">@rabbit_code_</a>
+        </p>
+
+    </footer>
+
+
+    <!-- Áudio -->
+
+    <audio id="audio"></audio>
+
+
+
+    <div id="modalLucas" class="modalOverlay">
+
+    <div class="modalCarta">
+
+        <button id="fecharModal" class="fecharModal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Para o Lucas</h2>
+
+        <div class="textoCarta">
+
+            <p>
+                E aí, Lucas! Se um dia você passar por aqui e ver isso,
+                queria só agradecer de coração por tudo que você faz
+                com a música.
+            </p>
+
+            <p>
+                "Agonia" virou praticamente uma relíquia pra mim — e
+                sei que não sou o único. Tem música sua que carrega
+                um peso diferente, marca fase, marca momento. Obrigado
+                por colocar isso no mundo.
+            </p>
+
+            <p>
+                Fiz esse site com carinho, do zero, só porque curto muito o
+                trabalho e queria ter tudo organizado num lugar só. Ainda é um
+                esboço — por enquanto só tem 30 músicas cadastradas — mas já dá
+                pra ter uma ideia do que pretendo fazer. Se algum dia fizer
+                sentido pra você ter algo assim oficial — um site, um app, o
+                que for — eu tô aqui e adoraria ajudar a construir. Mas antes de
+                qualquer coisa, só queria sua benção pra deixar isso no ar pra
+                galera acessar.
+            </p>
+
+            <p>
+                De novo, muito obrigado por tudo. Valeu mesmo, Lucas.
+            </p>
+
+            <p class="brincadeiraFinal">
+                "Eu vi o 7 Minutoz com 0 inscritos. <br>Hoje, vejo ele com 200 mil."
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
